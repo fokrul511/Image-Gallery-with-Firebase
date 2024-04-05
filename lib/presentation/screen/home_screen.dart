@@ -34,38 +34,42 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
       ),
       body: RefreshIndicator(
-        onRefresh: () async {
-          fetchImage();
-        },
+        onRefresh: fetchImage,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: GridView.builder(
-            itemCount: allimageList.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3,
-              crossAxisSpacing: 2,
-              mainAxisSpacing: 2,
+          child: Visibility(
+            visible: allimageList.isNotEmpty,
+            replacement: Center(
+              child: Text("Gallery is Empty"),
             ),
-            itemBuilder: (context, index) {
-              return Visibility(
-                visible: inProgress == false,
-                replacement: const Center(
-                  child: CircularProgressIndicator(),
-                ),
-                child: GestureDetector(
-                  onTap: () {
-                    Get.to(() => ViewImage(image: allimageList[index]));
-                  },
-                  child: Card(
-                    elevation: 5,
-                    child: Image.network(
-                      allimageList[index],
-                      fit: BoxFit.cover,
+            child: GridView.builder(
+              itemCount: allimageList.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 2,
+                mainAxisSpacing: 2,
+              ),
+              itemBuilder: (context, index) {
+                return Visibility(
+                  visible: inProgress == false,
+                  replacement: const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                  child: GestureDetector(
+                    onTap: () {
+                      Get.to(() => ViewImage(image: allimageList[index]));
+                    },
+                    child: Card(
+                      elevation: 5,
+                      child: Image.network(
+                        allimageList[index],
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
         ),
       ),
