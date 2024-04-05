@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "129025358734",
+    "project_id": "fir-gridview-projects",
+    "storage_bucket": "fir-gridview-projects.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:129025358734:android:75644b8660d71da14ec2df",
+        "android_client_info": {
+          "package_name": "com.example.firebase_gridview_projects"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwHDJQAqqIa4-of5gi6sUaZSWYTdRvCsw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
